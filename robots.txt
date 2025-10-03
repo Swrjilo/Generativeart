@@ -7,3 +7,6 @@ Disallow:
 # Point to sitemap
 Sitemap: https://www.p5jsart.space/sitemap.xml
 
+Sitemap: https://www.p5jsart.space/image-sitemap.xml
+
+
