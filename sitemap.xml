@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Gallery (hub page) -->
+  <url>
+    <loc>https://yourdomain.com/index.html</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Index.html (2 products) -->
+  <url>
+    <loc>https://yourdomain.com/page1.html#rat1</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/page1.html#rat2</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- next.html (2 products) -->
+  <url>
+    <loc>https://yourdomain.com/next.html#rat6</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/next.html#rat4</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- next2.html (2 products) -->
+  <url>
+    <loc>https://yourdomain.com/next2.html#rat5</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/next2.html#rat3</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- next3.html (2 products) -->
+  <url>
+    <loc>https://yourdomain.com/next3.html#rat11</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/next3.html#rat12</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- next4.html (2 products) -->
+  <url>
+    <loc>https://yourdomain.com/next4.html#rat13</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/next4.html#rat14</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- next5.html (2 products) -->
+  <url>
+    <loc>https://yourdomain.com/next5.html#rat15</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/next5.html#rat16</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- links.html (2 products) -->
+  <url>
+    <loc>https://yourdomain.com/links.html#rat7</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/links.html#rat8</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- facetracing.html (2 products) -->
+  <url>
+    <loc>https://yourdomain.com/facetracing.html#rat9</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://yourdomain.com/facetracing.html#rat10</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

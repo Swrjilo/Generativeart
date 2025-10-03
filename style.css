@@ -1,0 +1,481 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #f4f7fb;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+html, body {
+  height: 100%;             /* full viewport height */
+  margin: 0;
+  display: flex;
+  flex-direction: column;   /* stack header, main, footer */
+}
+
+main {
+  flex: 1; /* grows to fill space, pushes footer down */
+}
+
+
+/* Header */
+header {
+ background: linear-gradient(135deg, rgba(23, 36, 61, 0.95), rgba(34, 32, 103, 0.9));
+;
+
+
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* left group + nav right */
+  padding: 12px 40px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  backdrop-filter: blur(12px);
+}
+
+/* Left side: logo + heading */
+.header-top {
+  display: flex;
+  align-items: center;  /* keeps logo block + h1 aligned */
+  gap: 16px;            /* nice space between logo and heading */
+}
+
+.logo-block {
+  display: flex;
+  flex-direction: column; /* stack logo + site name vertically */
+  align-items: center;    /* center both horizontally */
+  position: relative;
+  top: 14px;               /* nudges the whole block downward */
+}
+
+
+.logo {
+  height: 52px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+.logo:hover {
+  transform: scale(1.05);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.site-subname {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 0;
+  background-image: linear-gradient(
+    90deg,
+    #ffffff,
+    #ffffff,
+    #faeaea
+  );
+  background-size: 200% auto;
+  background-position: 0 center;
+
+  /* text shine effect */
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+
+
+/* Navigation (right side) */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* spacing between nav links */
+}
+
+nav a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  font-weight: 600;
+  padding:6px 4px; /* give space for button shape */
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  overflow: hidden; /* keeps animation inside button */
+  position: relative;
+  /* Glassy default state */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 1px solid #ffb7b782;
+}
+
+/* Animated background on hover */
+nav a::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(34,197,94,0.6), transparent 70%);
+  opacity: 0;
+  transform: scale(0);
+  transition: transform 0.5s ease, opacity 0.3s ease;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+nav a:hover::before {
+  opacity: 1;
+  transform: scale(2); /* expands outwards */
+}
+
+/* Glassy hover effect */
+nav a:hover {
+  background: rgba(255, 255, 255, 0.15); /* translucent overlay */
+  backdrop-filter: blur(8px);            /* glass blur */
+  -webkit-backdrop-filter: blur(8px);    /* Safari support */
+  color: #fef9c3;                        /* highlight color */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  color: #fff; /* keep text bright */
+  text-shadow: 0 0 8px rgba(34, 197, 94, 0.9);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 16px;
+  }
+  header h1 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  }
+
+  .header-top {
+    margin-bottom: 12px;
+  }
+
+  nav {
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  nav a {
+    font-size: 14px;        /* smaller text */
+    padding: 4px 6px;      /* smaller buttons */
+    border-radius: 8px;     /* tighter pill shape */
+    border: 1px solid #ffb7b7;
+  }
+}
+
+/* Product Section */
+.product {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 50px auto;
+  padding: 28px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.product-info {
+  flex: 1;
+}
+
+.product-info h2 {
+  font-size: 32px;
+  margin-bottom: 12px;
+  font-weight: 800;
+  color: #2a6bdb; /* blue text */
+  
+}
+
+
+
+.product-info p {
+  margin: 8px 0;
+  font-size: 18px;
+  color: #1a1a1a;
+}
+.product-info .description {
+  font-size: 18px;
+  color: var(--muted, #1a1a1a);
+  margin: 6px 0 12px;
+  line-height: 1.5;
+}
+
+.label {
+  color: #000000;
+  font-family: "Georgia", "Times New Roman", serif; /* or try a Google font like 'Dancing Script' */
+  
+  font-size: 18px;
+  
+}
+
+
+
+/* Art canvas */
+.art-box {
+  width: 50vw;              /* scales with viewport width */
+  height: 35vw;             /* keeps proportional height */
+  max-width: 600px;         /* cap it so it doesn't get too huge */
+  max-height: 450px;
+  min-width: 320px;         /* safe minimum */
+  min-height: 240px;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+}
+.art-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255,255,255,0.1), transparent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product {
+    flex-direction: column;
+    text-align: center;
+  }
+  .art-box {
+    width: 100%;
+    height: 250px;
+    width: 100%;   /* takes full width */
+    height: auto;  /* height adjusts automatically */
+    aspect-ratio: 4 / 3; /* keeps proportions */
+  }
+}
+
+/* Videos Grid */
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 50px;
+}
+
+.video-item {
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.video-item:hover {
+  transform: translateY(-4px);
+}
+
+.video-item iframe {
+  width: 100%;
+  height: 190px;
+  border-radius: 12px;
+}
+
+/* Footer */
+footer {
+  background: #e6dfdf;              /* softer neutral background */
+  color: #000000;                   /* dark modern text */
+  text-align: center;
+  padding: 24px 16px;               /* slimmer, balanced padding */
+  font-size: 15px;                  /* cleaner smaller text */
+  font-weight: 400;
+  letter-spacing: 0.3px;            /* airy modern spacing */
+  margin-top: auto; 
+  border-top: 1px solid #e0e4eb;    /* subtle divider line */
+}
+
+
+
+.next-page-link {
+  text-align: right;   /* aligns the button to the right */
+  margin: 10px 20px;   /* space around it */
+}
+
+.next-page-link a {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 8px;
+  background: var(--brand, #2563eb); /* uses your theme color */
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.next-page-link a:hover {
+  background: var(--brand-2, #0ea5e9);
+}
+
+.number-page-link {
+  display: flex;
+  justify-content: flex-end;   /* align to top-right */
+  gap: 12px;                   /* spacing between links */
+  padding: 12px 20px;
+}
+
+.number-page-link a {
+  text-decoration: none;
+  color: #000000;              /* text color */
+  font-weight: 400;            /* thinner text */
+  font-size: 0.95rem;          /* slightly smaller */
+  padding: 5px 12px;           /* slimmer padding */
+  border: 1px solid #533f3f;   /* thin border */
+  border-radius: 6px;          /* softer rounded corners */
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;       /* airy modern spacing */
+}
+
+/* Hover effect */
+.number-page-link a:hover {
+  border-color: #533f3f;
+  background: #fafafa;         /* faint modern background */
+  color: #000;
+  transform: translateY(-1.5px); /* subtle lift */
+}
+
+/* Active page (always highlighted) */
+.number-page-link a.active {
+  background: #533f3f;         /* filled background */
+  color: #fff;                 /* white text */
+  font-weight: 600;            /* slightly bolder */
+  transform: none;             /* no hover bounce */
+  pointer-events: none;        /* disable click on current page */
+}
+
+
+.hero {
+  padding-left: 40px;           /* keeps text slightly to the right */
+}
+.section {
+  padding-left: 40px;           /* keeps text slightly to the right */
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+  .number-page-link a {
+    font-size: 0.65rem;       /* slightly smaller text */
+    padding: 2px 4px;        /* slimmer buttons */
+    border-radius: 4px;       /* cleaner, tighter look */
+  }
+}
+
+/* Price Tag*/
+.highlight {
+  display: inline-block;
+ background-color: #f4f4f2;
+
+
+  color: white;
+  font-weight: 600;
+  padding: 6px 0px;
+  border-radius: 8px;   /* pill shape */
+  box-shadow: 0 2px 6px rgba(141, 140, 140, 0.15);
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+.description2 {
+  display: inline-block;
+ 
+
+
+  color: white;
+  font-weight: 600;
+  padding: 6px 0px;
+  border-radius: 8px;   
+  
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+/*gallery SEO*/
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.gallery-item {
+  text-align: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.gallery-item h2 {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* 🔹 Mobile view (max-width: 768px) */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: 1fr 1fr; /* 2 items per row */
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .gallery-item {
+    padding: 8px;
+  }
+
+  .gallery-item h2 {
+    font-size: 1rem;
+  }
+}
+
+footer nav a {
+  color: #000000;   /* link text color */
+  text-decoration: none; /* remove underline */
+  margin: 0 8px;    /* spacing between links */
+  font-weight: 500; /* make links a bit bolder */
+  
+  background-color: #f0fdfa;
+  
+}
+
+footer nav a:hover {
+  color: #ffffff;   /* color on hover */
+  
+}
