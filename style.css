@@ -380,8 +380,8 @@ footer {
 /* Mobile styles */
 @media (max-width: 768px) {
   .number-page-link a {
-    font-size: 0.65rem;       /* slightly smaller text */
-    padding: 2px 4px;        /* slimmer buttons */
+    font-size: 0.55rem;       /* slightly smaller text */
+    padding: 2px 2px;        /* slimmer buttons */
     border-radius: 4px;       /* cleaner, tighter look */
   }
 }
@@ -479,3 +479,4 @@ footer nav a:hover {
   color: #ffffff;   /* color on hover */
   
 }
+
