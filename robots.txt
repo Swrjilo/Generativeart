@@ -1,8 +1,9 @@
-# robots.txt for https://yourdomain.com/
+# robots.txt for https://www.p5jsart.space/
 # Allow all search engines to crawl everything
 
 User-agent: *
 Disallow:
 
 # Point to sitemap
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://www.p5jsart.space/sitemap.xml
+
