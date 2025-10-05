@@ -1058,7 +1058,7 @@ new p5((p) => {
     apollonian([c1, c2, c3], 0);
 
     for (let i = 1; i < allCircles.length; i++) {
-      if (p.random() < 0.25) decoratedCircles.push(allCircles[i]);
+      if (p.random() < 0.35) decoratedCircles.push(allCircles[i]);
     }
   }
 
@@ -1159,6 +1159,7 @@ new p5((p) => {
     buildFractal();
   };
 });
+
 
 
 
