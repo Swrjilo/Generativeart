@@ -922,14 +922,20 @@ new p5((p) => {
 
 //art16
 new p5((p) => {
-  let circles = [];
-  let minRadius = 2;
-  let epsilon = 0.5;
-  let maxDepth;
+  let allCircles = [];
+  let visibleCircles = [];
+  let particles = [];
+  let generationIndex = 0;
   let hueShift = 0;
   let nextRegenFrame = 0;
-  let decoratedCircles = []; // store which circles get π
+  let decoratedCircles = [];
 
+  const minRadius = 2;
+  const epsilon = 0.5;
+  let maxDepth;
+  let generationSpeed = 2; // lower = slower reveal
+
+  // 🧮 Complex number math
   class Complex {
     constructor(a, b) { this.a = a; this.b = b; }
     add(o) { return new Complex(this.a + o.a, this.b + o.b); }
@@ -945,12 +951,15 @@ new p5((p) => {
     }
   }
 
+  // 🟣 Each fractal circle
   class Circle {
     constructor(bend, x, y) {
       this.center = new Complex(x, y);
       this.bend = bend;
       this.radius = Math.abs(1 / bend);
       this.baseHue = p.random(0, 360);
+      this.birthFrame = p.frameCount;
+      this.popped = false;
     }
 
     distance(o) {
@@ -962,13 +971,57 @@ new p5((p) => {
     draw(depth = 0) {
       let hue = (this.baseHue + hueShift + depth * 40) % 360;
       let hue2 = (hue + 60) % 360;
-      let gradBright = p.map(Math.sin((p.frameCount + depth*20) * 0.05), -1, 1, 60, 100);
+      let gradBright = p.map(Math.sin((p.frameCount + depth * 20) * 0.03), -1, 1, 60, 95);
 
-      p.fill(hue, 100, gradBright, 40);
+      // 🫧 Pop scaling animation
+      let life = p.frameCount - this.birthFrame;
+      let scaleFactor = p.constrain(p.map(life, 0, 20, 0, 1), 0, 1);
+      let r = this.radius * scaleFactor;
+
+      p.fill(hue, 90, gradBright, 40);
       p.stroke(hue2, 100, 100, 90);
-      p.strokeWeight(1.5);
+      p.strokeWeight(1.2);
+      p.ellipse(this.center.a, this.center.b, r * 2);
 
-      p.ellipse(this.center.a, this.center.b, this.radius * 2);
+      // ✨ When it first fully appears, release particles
+      if (!this.popped && scaleFactor >= 0.95) {
+        this.popped = true;
+        createParticles(this.center.a, this.center.b, hue);
+      }
+    }
+  }
+
+  // 💫 Particle system
+  class Particle {
+    constructor(x, y, hue) {
+      this.x = x;
+      this.y = y;
+      this.hue = hue;
+      this.angle = p.random(p.TWO_PI);
+      this.speed = p.random(0.5, 2);
+      this.life = 40;
+      this.size = p.random(1, 3);
+    }
+
+    update() {
+      this.x += Math.cos(this.angle) * this.speed;
+      this.y += Math.sin(this.angle) * this.speed;
+      this.speed *= 0.97; // gentle slowdown
+      this.life--;
+    }
+
+    draw() {
+      let alpha = p.map(this.life, 0, 40, 0, 100);
+      p.noStroke();
+      p.fill(this.hue, 90, 100, alpha);
+      p.ellipse(this.x, this.y, this.size);
+    }
+  }
+
+  function createParticles(x, y, hue) {
+    let count = p.int(p.random(8, 15)); // small burst
+    for (let i = 0; i < count; i++) {
+      particles.push(new Particle(x, y, hue));
     }
   }
 
@@ -978,13 +1031,18 @@ new p5((p) => {
     const h = container ? container.offsetHeight : Math.min(800, p.windowHeight);
     p.createCanvas(w, h).parent(container);
     p.colorMode(p.HSB, 360, 100, 100, 100);
+    p.textAlign(p.CENTER, p.CENTER);
     buildFractal();
   };
 
+  // 🔷 Build all circles but reveal later
   function buildFractal() {
-    circles = [];
+    allCircles = [];
+    visibleCircles = [];
+    particles = [];
     decoratedCircles = [];
-    p.background(0, 0, 100); // white background
+    hueShift = 0;
+    generationIndex = 0;
 
     maxDepth = p.int(p.random(4, 6));
     let r = Math.min(p.width, p.height) * p.random(0.44, 0.54);
@@ -992,18 +1050,15 @@ new p5((p) => {
     let cx = p.width / 2;
     let cy = p.height / 2;
 
-    let c1 = new Circle(-1 / r, cx, cy); // big bounding
+    let c1 = new Circle(-1 / r, cx, cy);
     let c2 = new Circle(1 / (r / 2), cx - r / 2, cy);
     let c3 = new Circle(1 / (r / 2), cx + r / 2, cy);
 
-    circles.push(c1, c2, c3);
+    allCircles.push(c1, c2, c3);
     apollonian([c1, c2, c3], 0);
 
-    // Pick random smaller circles for π (skip the first big one)
-    for (let i = 1; i < circles.length; i++) {
-      if (p.random() < 0.3) { // ~30% chance
-        decoratedCircles.push(circles[i]);
-      }
+    for (let i = 1; i < allCircles.length; i++) {
+      if (p.random() < 0.25) decoratedCircles.push(allCircles[i]);
     }
   }
 
@@ -1015,7 +1070,7 @@ new p5((p) => {
 
     for (let c4 of newCircles) {
       if (validate(c4)) {
-        circles.push(c4);
+        allCircles.push(c4);
         apollonian([c1, c2, c4], depth + 1);
         apollonian([c1, c3, c4], depth + 1);
         apollonian([c2, c3, c4], depth + 1);
@@ -1025,11 +1080,9 @@ new p5((p) => {
 
   function validate(c4) {
     if (c4.radius < minRadius) return false;
-    for (let other of circles) {
+    for (let other of allCircles) {
       let d = c4.distance(other);
-      if (d < epsilon && Math.abs(c4.radius - other.radius) < epsilon) {
-        return false;
-      }
+      if (d < epsilon && Math.abs(c4.radius - other.radius) < epsilon) return false;
     }
     return true;
   }
@@ -1054,31 +1107,48 @@ new p5((p) => {
       new Circle(ks[0], sum.sub(root).scale(1/ks[0]).a, sum.sub(root).scale(1/ks[0]).b)
     ];
 
-    let bounding = circles[0]; 
+    let bounding = allCircles[0];
     return candidates.filter(c => c.distance(bounding) + c.radius <= bounding.radius + 1);
   }
 
+  // 🎨 Draw everything
   p.draw = () => {
-    p.background(0, 0, 100); // white background
-    hueShift += 6;
+    p.background(0, 0, 100);
+    hueShift += 0.6;
 
-    for (let i = 0; i < circles.length; i++) {
-      circles[i].draw(i % maxDepth);
+    // Reveal circles over time
+    if (generationIndex < allCircles.length && p.frameCount % generationSpeed === 0) {
+      visibleCircles.push(allCircles[generationIndex]);
+      generationIndex++;
     }
 
-    // ✨ Draw π on selected smaller circles
+    // Draw visible circles
+    for (let i = 0; i < visibleCircles.length; i++) {
+      visibleCircles[i].draw(i % maxDepth);
+    }
+
+    // Draw π marks
     p.noStroke();
-    p.fill(0, 0, 0); // black symbol
-    p.textAlign(p.CENTER, p.CENTER);
-
+    p.fill(0, 0, 0);
     for (let c of decoratedCircles) {
-      p.textSize(c.radius * 0.8);
-      p.text("π", c.center.a, c.center.b);
+      if (visibleCircles.includes(c)) {
+        p.textSize(c.radius * 0.8);
+        p.text("π", c.center.a, c.center.b);
+      }
     }
 
-    if (p.frameCount > nextRegenFrame) {
+    // Update and draw sparkles
+    for (let i = particles.length - 1; i >= 0; i--) {
+      let part = particles[i];
+      part.update();
+      part.draw();
+      if (part.life <= 0) particles.splice(i, 1);
+    }
+
+    // Restart when full
+    if (generationIndex >= allCircles.length && p.frameCount > nextRegenFrame + 900) {
       buildFractal();
-      nextRegenFrame = p.frameCount + 450;
+      nextRegenFrame = p.frameCount;
     }
   };
 
@@ -1089,6 +1159,7 @@ new p5((p) => {
     buildFractal();
   };
 });
+
 
 
 
