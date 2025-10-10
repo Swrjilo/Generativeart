@@ -8,37 +8,13 @@
   </url>
 
   <!-- Product pages (2 artworks each) -->
-  <url>
-    <loc>https://www.p5jsart.space/page1.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.p5jsart.space/next.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.p5jsart.space/next2.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.p5jsart.space/next3.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.p5jsart.space/next4.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.p5jsart.space/next5.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.p5jsart.space/links.html</loc>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.p5jsart.space/facetracing.html</loc>
-    <priority>0.8</priority>
-  </url>
+  <url><loc>https://www.p5jsart.space/page1.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.p5jsart.space/next.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.p5jsart.space/next2.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.p5jsart.space/next3.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.p5jsart.space/next4.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.p5jsart.space/next5.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.p5jsart.space/links.html</loc><priority>0.8</priority></url>
+  <url><loc>https://www.p5jsart.space/facetracing.html</loc><priority>0.8</priority></url>
 
 </urlset>
