@@ -2,109 +2,88 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- Page 1 -->
   <url>
     <loc>https://www.p5jsart.space/index.html</loc>
+
     <image:image>
       <image:loc>https://www.p5jsart.space/previews/art1.png</image:loc>
-      <image:caption>Generative Labyrinth - p5.js generative coding art, maze-like evolving 2D artwork , coding art , logo design </image:caption>
+      <image:caption>Generative Labyrinth – p5.js generative coding art, maze-like evolving 2D artwork, coding art, logo design</image:caption>
     </image:image>
+
     <image:image>
       <image:loc>https://www.p5jsart.space/previews/art2.png</image:loc>
-      <image:caption>Pseudo Geometrical Rays - creative p5js generative art with rays and patterns , coding art , logo design</image:caption>
+      <image:caption>Pseudo Geometrical Rays – creative p5.js generative art with rays and patterns, coding art, logo design</image:caption>
     </image:image>
-  </url>
 
-  <!-- Page 2 -->
-  <url>
-    <loc>https://www.p5jsart.space/index.html</loc>
-    <image:image>
-      <image:loc>https://www.p5jsart.space/previews/art6.png</image:loc>
-      <image:caption>Sacred Geometry - generative coding art with p5.js, abstract evolving geometry , coding art , logo design , sacred geometry</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.p5jsart.space/previews/art4.png</image:loc>
-      <image:caption>Sacred Mandala - p5.js generative mandala artwork, creative coding experiment , coding art , logo design</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Page 3 -->
-  <url>
-    <loc>https://www.p5jsart.space/index.html</loc>
-    <image:image>
-      <image:loc>https://www.p5jsart.space/previews/art5.png</image:loc>
-      <image:caption>Topographic Plates - p5js generative design with abstract topographic effects , coding art , logo design</image:caption>
-    </image:image>
     <image:image>
       <image:loc>https://www.p5jsart.space/previews/art3.png</image:loc>
-      <image:caption>Perlin Noise - interactive generative p5js coding art with evolving visuals , coding art , logo design</image:caption>
+      <image:caption>Perlin Noise – interactive generative p5.js coding art with evolving visuals, coding art, logo design</image:caption>
     </image:image>
-  </url>
 
-  <!-- Page 4 -->
-  <url>
-    <loc>https://www.p5jsart.space/index.html</loc>
+    <image:image>
+      <image:loc>https://www.p5jsart.space/previews/art4.png</image:loc>
+      <image:caption>Sacred Mandala – p5.js generative mandala artwork, creative coding experiment, coding art, logo design</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.p5jsart.space/previews/art5.png</image:loc>
+      <image:caption>Topographic Plates – p5.js generative design with abstract topographic effects, coding art, logo design</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.p5jsart.space/previews/art6.png</image:loc>
+      <image:caption>Sacred Geometry – generative coding art with p5.js, abstract evolving geometry, coding art, logo design, sacred geometry</image:caption>
+    </image:image>
+
     <image:image>
       <image:loc>https://www.p5jsart.space/previews/art7.png</image:loc>
-      <image:caption>Generative Logo - moving logo generative art with p5js creative coding , coding art , logo design</image:caption>
+      <image:caption>Generative Logo – moving logo generative art with p5.js creative coding, coding art, logo design</image:caption>
     </image:image>
+
     <image:image>
       <image:loc>https://www.p5jsart.space/previews/art8.png</image:loc>
-      <image:caption>Perlin Waves - abstract p5.js generative art with flowing wave-like motion , coding art , logo design</image:caption>
+      <image:caption>Perlin Waves – abstract p5.js generative art with flowing wave-like motion, coding art, logo design</image:caption>
     </image:image>
-  </url>
 
-  <!-- Page 5 -->
-  <url>
-    <loc>https://www.p5jsart.space/index.html</loc>
-    <image:image>
-      <image:loc>https://www.p5jsart.space/previews/art11.png</image:loc>
-      <image:caption>Brain Neurons - generative art inspired by neural networks, p5js creative coding , coding art , logo design</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.p5jsart.space/previews/art12.png</image:loc>
-      <image:caption>Brain Particles - dynamic particle-based generative artwork with p5js , coding art , logo design</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Page 6 -->
-  <url>
-    <loc>https://www.p5jsart.space/index.html</loc>
-    <image:image>
-      <image:loc>https://www.p5jsart.space/previews/art13.png</image:loc>
-      <image:caption>Animated Logo - moving generative design made with p5js , coding art , logo design </image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.p5jsart.space/previews/art14.png</image:loc>
-      <image:caption>Titanium Heart - generative p5.js artwork, abstract heart design , coding art , logo design</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Page 7 -->
-  <url>
-    <loc>https://www.p5jsart.space/index.html</loc>
-    <image:image>
-      <image:loc>https://www.p5jsart.space/previews/art15.png</image:loc>
-      <image:caption>Sacred Geometry Art - abstract generative coding with p5.js , coding art , logo design</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://www.p5jsart.space/previews/art16.png</image:loc>
-      <image:caption>Apollonian Gasket - p5.js generative fractal design with color variations , coding art , logo design</image:caption>
-    </image:image>
-  </url>
-
-  <!-- Page 8 -->
-  <url>
-    <loc>https://www.p5jsart.space/index.html</loc>
     <image:image>
       <image:loc>https://www.p5jsart.space/previews/art9.png</image:loc>
-      <image:caption>Algorithmic Textures - coding-based generative art with motion and symmetry , coding art , logo design</image:caption>
+      <image:caption>Algorithmic Textures – coding-based generative art with motion and symmetry, coding art, logo design</image:caption>
     </image:image>
+
     <image:image>
       <image:loc>https://www.p5jsart.space/previews/art10.png</image:loc>
-      <image:caption>Rhino Virus - dynamic p5.js generative art with abstract organic visuals , coding art , logo design</image:caption>
+      <image:caption>Rhino Virus – dynamic p5.js generative art with abstract organic visuals, coding art, logo design</image:caption>
     </image:image>
+
+    <image:image>
+      <image:loc>https://www.p5jsart.space/previews/art11.png</image:loc>
+      <image:caption>Brain Neurons – generative art inspired by neural networks, p5.js creative coding, coding art, logo design</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.p5jsart.space/previews/art12.png</image:loc>
+      <image:caption>Brain Particles – dynamic particle-based generative artwork with p5.js, coding art, logo design</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.p5jsart.space/previews/art13.png</image:loc>
+      <image:caption>Animated Logo – moving generative design made with p5.js, coding art, logo design</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.p5jsart.space/previews/art14.png</image:loc>
+      <image:caption>Titanium Heart – generative p5.js artwork, abstract heart design, coding art, logo design</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.p5jsart.space/previews/art15.png</image:loc>
+      <image:caption>Sacred Geometry Art – abstract generative coding with p5.js, coding art, logo design</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.p5jsart.space/previews/art16.png</image:loc>
+      <image:caption>Apollonian Gasket – p5.js generative fractal design with color variations, coding art, logo design</image:caption>
+    </image:image>
+
   </url>
-
 </urlset>
-
